@@ -41,6 +41,9 @@ span{
 .col-12 span{
 	width: 6.25%;
 }
+.table thead tr th{
+    text-align: center;
+}
 .form-select{
     padding: 0.375rem 2.75rem 0.375rem 15px;
     background-position-x: 95%;

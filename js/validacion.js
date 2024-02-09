@@ -16,8 +16,6 @@ function soloLetras(e) {
 /* soloLetras */
 document.getElementById("nombre_menor").addEventListener("keydown", soloLetras);
 document.getElementById("apellido_menor").addEventListener("keydown", soloLetras);
-document.getElementById("nombre_mayor").addEventListener("keydown", soloLetras);
-document.getElementById("apellido_mayor").addEventListener("keydown", soloLetras);
 
 /* soloNumeros */
 document.getElementById("piso_visita").addEventListener("keydown", soloNumeros);
@@ -28,7 +26,7 @@ document.getElementById("cedula_menor2").addEventListener("keydown", soloNumeros
 document.getElementById("cedula_mayor").addEventListener("keydown", soloNumeros);
 document.getElementById("pase").addEventListener("keydown", soloNumeros);
 document.getElementById("telefono_mayor").addEventListener("keydown", soloNumeros);
-document.getElementById("bien_nacional").addEventListener("keydown", soloNumeros);
+/* document.getElementById("bien_nacional").addEventListener("keydown", soloNumeros); */
 
 function validar1(){
     /* if(document.getElementById("tipo_visita").value <= 1){
@@ -57,7 +55,9 @@ function validar3(){
         document.getElementById("obs_visita8").style.display = "None";
         document.getElementById("obs_visita12").style.display = "None";
         document.getElementById("obs_visita13").style.display = "None";
+        document.getElementById("obs_visita14").style.display = "None";
         document.getElementById("obs_visita17").style.display = "None";
+        document.getElementById("obs_visita16").style.display = "None";
         document.getElementById("obs_visita18").style.display = "None";
         document.getElementById("obs_visita22").style.display = "None";
         document.getElementById("tabla1").style.display = "None";
@@ -68,6 +68,7 @@ function validar3(){
         document.getElementById("obs_visita12").style.display = "Block";
         document.getElementById("obs_visita13").style.display = "Block";
         document.getElementById("obs_visita17").style.display = "Block";
+        document.getElementById("obs_visita16").style.display = "Block";
         document.getElementById("obs_visita18").style.display = "Block";
         document.getElementById("obs_visita22").style.display = "Block";
         document.getElementById("tabla1").style.display = "Block";
@@ -75,6 +76,11 @@ function validar3(){
             document.getElementById("obs_visita8").style.display = "None";
         }else{
             document.getElementById("obs_visita8").style.display = "Block";
+        }
+        if(document.getElementById("preguntas2").value == 0 || document.getElementById("preguntas2").value == 2){
+            document.getElementById("obs_visita14").style.display = "None";
+        }else{
+            document.getElementById("obs_visita14").style.display = "Block";
         }
     }
 }
@@ -93,28 +99,10 @@ function validar5(){
     }
 }
 function validar6(){
-    if(document.getElementById("tipo_visitas_mayor").value == 0 || document.getElementById("tipo_visitas_mayor").value == 2){
-        document.getElementById("obs_visita9").style.display = "None";
-        document.getElementById("obs_visita10").style.display = "None";
-        document.getElementById("obs_visita11").style.display = "None";
+    if(document.getElementById("preguntas2").value != 1){
         document.getElementById("obs_visita14").style.display = "None";
-        document.getElementById("obs_visita15").style.display = "None";
-        document.getElementById("obs_visita16").style.display = "None";
-        document.getElementById("obs_visita19").style.display = "None";
-        document.getElementById("obs_visita20").style.display = "None";
-        document.getElementById("obs_visita21").style.display = "None";
-        document.getElementById("tabla2").style.display = "None";
     }else{
-        document.getElementById("obs_visita9").style.display = "Block";
-        document.getElementById("obs_visita10").style.display = "Block";
-        document.getElementById("obs_visita11").style.display = "Block";
         document.getElementById("obs_visita14").style.display = "Block";
-        document.getElementById("obs_visita15").style.display = "Block";
-        document.getElementById("obs_visita16").style.display = "Block";
-        document.getElementById("obs_visita19").style.display = "Block";
-        document.getElementById("obs_visita20").style.display = "Block";
-        document.getElementById("obs_visita21").style.display = "Block";
-        document.getElementById("tabla2").style.display = "Block";
     }
 }
 function agregar(e){
@@ -158,43 +146,17 @@ function agregar(e){
         }else{
             document.getElementById("sexo_menor").style.borderColor = "";
         }
-    }else
-    if(e == 2){
-        if(document.getElementById("cedula_mayor").value == ""){
-            document.getElementById("cedula_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("cedula_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("nombre_mayor").value == ""){
-            document.getElementById("nombre_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("nombre_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("apellido_mayor").value == ""){
-            document.getElementById("apellido_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("apellido_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("nacimiento_mayor").value == ""){
-            document.getElementById("nacimiento_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("nacimiento_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("sexo_mayor").value == "0"){
-            document.getElementById("sexo_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("sexo_mayor").style.borderColor = "";
-        }
         if(document.getElementById("telefono_mayor").value == ""){
             document.getElementById("telefono_mayor").style.borderColor = "Red";
             valor++;
         }else{
             document.getElementById("telefono_mayor").style.borderColor = "";
+        }
+        if(document.getElementById("preguntas2").value == ""){
+            document.getElementById("preguntas2").style.borderColor = "Red";
+            valor++;
+        }else{
+            document.getElementById("preguntas2").style.borderColor = "";
         }
     }else
     if(e == 3){
@@ -216,6 +178,26 @@ function agregar(e){
         }else{
             document.getElementById("serial").style.borderColor = "";
         }
+    }else
+    if(e == 4){
+        if(document.getElementById("marca2").value == ""){
+            document.getElementById("marca2").style.borderColor = "Red";
+            valor++;
+        }else{
+            document.getElementById("marca2").style.borderColor = "";
+        }
+        if(document.getElementById("modelo2").value == ""){
+            document.getElementById("modelo2").style.borderColor = "Red";
+            valor++;
+        }else{
+            document.getElementById("modelo2").style.borderColor = "";
+        }
+        if(document.getElementById("serial2").value == ""){
+            document.getElementById("serial2").style.borderColor = "Red";
+            valor++;
+        }else{
+            document.getElementById("serial2").style.borderColor = "";
+        }
     }
     if(valor != 0){
         alert("Debe llenar los campos obligatorios (*) para continuar");
@@ -224,12 +206,12 @@ function agregar(e){
 function buscar(e){
     let valor = 0;
     if(e == 1){
-        if(document.getElementById("nacionalidad").value == 0){
+        /* if(document.getElementById("nacionalidad").value == 0){
             document.getElementById("nacionalidad").style.borderColor = "red";
             valor++;
         }else{
             document.getElementById("nacionalidad").style.borderColor = "";
-        }
+        } */
         if(document.getElementById("cedula").value == ""){
             document.getElementById("cedula").style.borderColor = "red";
             valor++;
@@ -244,14 +226,6 @@ function buscar(e){
         }else{
             document.getElementById("cedula_menor2").style.borderColor = "";
         }
-    }else
-    if(e == 3){
-        if(document.getElementById("cedula_mayor").value == ""){
-            document.getElementById("cedula_mayor").style.borderColor = "red";
-            valor++;
-        }else{
-            document.getElementById("cedula_mayor").style.borderColor = "";
-        }
     }
     if(valor != 0){
         alert("Debe llenar los campos obligatorios (*) para continuar");
@@ -259,12 +233,12 @@ function buscar(e){
 }
 function registrar(){
     let valor = 0;
-    if(document.getElementById("nacionalidad").value == 0){
+    /* if(document.getElementById("nacionalidad").value == 0){
         document.getElementById("nacionalidad").style.borderColor = "red";
         valor++;
     }else{
         document.getElementById("nacionalidad").style.borderColor = "";
-    }
+    } */
     if(document.getElementById("cedula").value == 0){
         document.getElementById("cedula").style.borderColor = "red";
         valor++;
@@ -295,25 +269,17 @@ function registrar(){
     }else{
         document.getElementById("telefono1").style.borderColor = "";
     }
-    if(document.getElementById("tipo_visitas_mayor").value == ""){
-        document.getElementById("tipo_visitas_mayor").style.borderColor = "red";
+    if(document.getElementById("nombre_empresa").value == ""){
+        document.getElementById("nombre_empresa").style.borderColor = "red";
         valor++;
     }else{
-        document.getElementById("tipo_visitas_mayor").style.borderColor = "";
+        document.getElementById("nombre_empresa").style.borderColor = "";
     }
     if(document.getElementById("tipo_visita").value == 0){
         document.getElementById("tipo_visita").style.borderColor = "red";
         valor++;
     }else{
         document.getElementById("tipo_visita").style.borderColor = "";
-        if(document.getElementById("tipo_visita").value == 2){
-            if(document.getElementById("nombre_empresa").value == ""){
-                document.getElementById("nombre_empresa").style.borderColor = "red";
-                valor++;
-            }else{
-                document.getElementById("nombre_empresa").style.borderColor = "";
-            }
-        }
     }
     if(document.getElementById("motivo_visita").value == ""){
         document.getElementById("motivo_visita").style.borderColor = "red";
@@ -373,48 +339,6 @@ function registrar(){
             valor++;
         }else{
             document.getElementById("sexo_menor").style.borderColor = "";
-        }
-    }
-    if(document.getElementById("tipo_visitas_mayor").value == 0){
-        document.getElementById("tipo_visitas_mayor").style.borderColor = "red";
-        valor++;
-    }else{
-        document.getElementById("tipo_visitas_mayor").style.borderColor = "";
-        if(document.getElementById("cedula_mayor").value == ""){
-            document.getElementById("cedula_mayor").style.borderColor = "red";
-            valor++;
-        }else{
-            document.getElementById("cedula_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("nombre_mayor").value == ""){
-            document.getElementById("nombre_mayor").style.borderColor = "red";
-            valor++;
-        }else{
-            document.getElementById("nombre_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("apellido_mayor").value == ""){
-            document.getElementById("apellido_mayor").style.borderColor = "red";
-            valor++;
-        }else{
-            document.getElementById("apellido_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("nacimiento_mayor").value == ""){
-            document.getElementById("nacimiento_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("nacimiento_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("sexo_mayor").value == "0"){
-            document.getElementById("sexo_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("sexo_mayor").style.borderColor = "";
-        }
-        if(document.getElementById("telefono_mayor").value == ""){
-            document.getElementById("telefono_mayor").style.borderColor = "Red";
-            valor++;
-        }else{
-            document.getElementById("telefono_mayor").style.borderColor = "";
         }
     }
     if(document.getElementById("preguntas").value == 0){

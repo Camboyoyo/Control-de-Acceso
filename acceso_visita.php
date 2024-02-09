@@ -71,15 +71,6 @@
                                 <textarea name="observaciones3" id="observaciones" style="border-radius: 0 30px 30px 0; height: 20px" class="form-control" cols="30" rows="10"></textarea>
                             </div>
                         </div> -->
-                        <div class="col-6" id="obs_visita2" style="display: none;">
-                            <label class="form-label">Nombre de la Empresa</label><span> *</span>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                    <img src="imagenes/favicon/puesto2.png" alt="">
-                                </span>
-                                <input id="nombre_empresa" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. Papa Johns" name="nombre_empresa" required>
-                            </div>
-                        </div>
                         <div class="col-6">
                             <label class="form-label">Motivo de la Visita</label><span> *</span>
                             <div class="input-group mb-3">
@@ -141,7 +132,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="sep"></div>
-                        <div class="col-6">
+                        <!-- <div class="col-6">
                             <label class="form-label">Nacionalidad</label><span> *</span><br>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
@@ -153,7 +144,7 @@
                                     <option value="2">Extranjero(a)</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-6">
                             <label class="form-label">Cédula de Identidad</label><span> *</span>
                             <div class="input-group mb-3">
@@ -204,9 +195,101 @@
                                 <input id="telefono1" maxlength="11" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 04120000000"  name="telefono1" required>
                             </div>
                         </div>
+                        <div class="col-6">
+                            <label class="form-label">Nombre de la Empresa</label><span> *</span>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                    <img src="imagenes/favicon/puesto2.png" alt="">
+                                </span>
+                                <input id="nombre_empresa" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. Papa Johns" name="nombre_empresa" required>
+                            </div>
+                        </div>
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label class="form-label" style="font-size: 15.3px;">¿Viene con Acompañante? (Menor de Edad)</label><span>*</span>
+                            <label class="form-label" style="font-size: 15.3px;">¿Trae consigo Dispositivos Electrónicos?</label><span>*</span>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                    <img src="imagenes/favicon/objetivos.png" alt="">
+                                </span>
+                                <select id="preguntas" class="form-select"  style="border-radius: 0 30px 30px 0;" aria-label="Default select example" name="preguntas" onchange="validar4()" required>
+                                    <option value="">Seleccione</option>
+                                    <option value="1">Si</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
+
+                        <!-- Dispositivos Electrónicos -->
+
+                        <div class="container" id="obs_visita7" style="display: none;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label">Marca</label><span> *</span>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="marca" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. Lenovo" name="marca" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Modelo</label><span> *</span>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="modelo" onKeyUp="mayusculas(this);" maxlength="10" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. YSKMF45692" name="modelo" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Serial</label><span> *</span>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="serial" onKeyUp="mayusculas(this);" maxlength="16" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. ASF4511553120000" name="serial" required>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-6">
+                                    <label class="form-label">Bien Nacional</label>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="bien_nacional" maxlength="7" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 4205640" name="bien_nacional" required>
+                                    </div>
+                                </div> -->
+                                <div>
+                                    <center>
+                                        <button type="button" onclick="agregar(3)" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
+                                            Registar Dispositivo Electrónico
+                                        </button>
+                                    </center>
+                                </div>
+                                <div class="col-12">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Marca</th>
+                                                <th scope="col">Modelo</th>
+                                                <th scope="col">Serial</th>
+                                                <th scope="col">Bien Nacional</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="linea"></div>
+                                <div class="sep-2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Datos del Acompañante -->
+
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <label class="form-label" style="font-size: 15.3px;">¿Viene con Acompañante?</label><span>*</span>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
                                     <img src="imagenes/favicon/users.png" alt="">
@@ -222,7 +305,7 @@
                         <!-- Menor de Edad -->
                         
                         <div id="obs_visita12" style="display: none;">
-                            <h2 style="margin-top: 0;">Datos del Menor de Edad</h2>
+                            <h2 style="margin-top: 0;">Datos del Visitante</h2>
                             <div class="linea"></div>
                             <div class="sep-2"></div>
                         </div>
@@ -294,6 +377,87 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-6" id="obs_visita21" style="display: none;">
+                            <label class="form-label">Teléfono Personal</label><span> *</span>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                    <img src="imagenes/favicon/telefono-inteligente.png" alt="">
+                                </span>
+                                <input id="telefono_mayor" maxlength="11" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 04120000000" name="telefono_mayor" required>
+                            </div>
+                        </div>
+                        <div class="col-6" id="obs_visita16" style="display: none;">
+                            <label class="form-label" style="font-size: 15.3px;">¿Trae consigo Dispositivos Electrónicos?</label><span>*</span>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                    <img src="imagenes/favicon/objetivos.png" alt="">
+                                </span>
+                                <select id="preguntas2" class="form-select"  style="border-radius: 0 30px 30px 0;" aria-label="Default select example" name="preguntas2" onchange="validar6()" required>
+                                    <option value="">Seleccione</option>
+                                    <option value="1">Si</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Dispositivos Electrónicos -->
+
+                        <div class="container" id="obs_visita14" style="display: none;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label">Marca</label><span> *</span>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="marca2" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. Lenovo" name="marca2" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Modelo</label><span> *</span>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="modelo2" onKeyUp="mayusculas(this);" maxlength="10" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. YSKMF45692" name="modelo2" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Serial</label><span> *</span>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
+                                            <img src="imagenes/favicon/informacion.png" alt="">
+                                        </span>
+                                        <input id="serial2" onKeyUp="mayusculas(this);" maxlength="16" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. ASF4511553120000" name="serial2" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <center>
+                                        <button type="button" onclick="agregar(4)" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
+                                            Registar Dispositivo Electrónico
+                                        </button>
+                                    </center>
+                                </div>
+                                <div class="col-12">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Marca</th>
+                                                <th scope="col">Modelo</th>
+                                                <th scope="col">Serial</th>
+                                                <th scope="col">Bien Nacional</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="linea"></div>
+                                <div class="sep-2"></div>
+                                <div class="sep-2"></div>
+                                <div class="sep-2"></div>
+                                <div class="sep-2"></div>
+                            </div>
+                        </div>
                         <div>
                             <center>
                                 <button id="obs_visita17" type="button" onclick="agregar(1)" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px; display: none;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
@@ -309,18 +473,19 @@
                                         <th scope="col">Cédula de Identidad</th>
                                         <th scope="col">Nombre(s)</th>
                                         <th scope="col">Apellido(s)</th>
+                                        <th scope="col">Teléfono Personal</th>
                                     </tr>
                                 </thead>
                             </table>
                         </div>
                         <div id="obs_visita13" style="display: none;">
                             <div class="linea"></div>
-                            <div class="sep-2"></div>
+                            <div style="width: 100%; height: 60px"></div>
                         </div>
 
                         <!-- Acompañante mayor -->
 
-                        <div class="col-3"></div>
+                        <!-- <div class="col-3"></div>
                         <div class="col-6">
                             <label class="form-label" style="font-size: 15.3px;">¿Viene con Acompañante? (Mayor de Edad)</label><span>*</span>
                             <div class="input-group mb-3">
@@ -334,8 +499,6 @@
                                 </select>
                             </div>
                         </div>
-
-                        <!-- Mayor de Edad -->
 
                         <div id="obs_visita14" style="display: none;">
                             <h2 style="margin-top: 0;">Datos del Mayor de Edad</h2>
@@ -354,10 +517,6 @@
                                         Buscar
                                     </button>
                                 </div>
-                                <!-- <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                    <img src="imagenes/favicon/users.png" alt="">
-                                </span>
-                                <input id="cedula_mayor" maxlength="8" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 00000000" name="cedula_mayor" required> -->
                             </div>
                         </div>
                         <div class="col-6" id="obs_visita10" style="display: none;">
@@ -400,15 +559,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6" id="obs_visita21" style="display: none;">
-                            <label class="form-label">Teléfono Personal</label><span> *</span>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                    <img src="imagenes/favicon/telefono-inteligente.png" alt="">
-                                </span>
-                                <input id="telefono_mayor" maxlength="11" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 04120000000" name="telefono_mayor" required>
-                            </div>
-                        </div>
                         <div>
                             <center>
                                 <button id="obs_visita16" type="button" onclick="agregar(2)" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px; display: none;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
@@ -427,11 +577,7 @@
                                     </tr>
                                 </thead>
                             </table>
-                        </div>
-                        <div id="obs_visita15" style="display: none;">
-                            <div class="linea"></div>
-                            <div class="sep-2"></div>
-                        </div>
+                        </div> -->
 
                         <!-- Dispositivos Electrónicos -->
 
@@ -439,102 +585,6 @@
                         <div class="linea"></div>
                         <div class="sep-2"></div>
                         <div class="col-3"></div>
-                        <div class="col-6">
-                            <label class="form-label" style="font-size: 15.3px;">¿Trae consigo Dispositivos Electrónicos?</label><span>*</span>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                    <img src="imagenes/favicon/objetivos.png" alt="">
-                                </span>
-                                <select id="preguntas" class="form-select"  style="border-radius: 0 30px 30px 0;" aria-label="Default select example" name="preguntas" onchange="validar4()" required>
-                                    <option value="">Seleccione</option>
-                                    <option value="1">Si</option>
-                                    <option value="2">No</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- <div class="col-6">
-                            <label class="form-label" style="font-size: 15.3px;">Nro. de Pase</label><span>*</span>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                    <img src="imagenes/favicon/objetivos.png" alt="">
-                                </span>
-                                <input id="pase" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 1234" name="pase" required>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-12" id="obs_visita7" style="display: none;">
-                            <label class="form-label" style="font-size: 15.3px;">Detalle (Marca, Modelo, Serial, Bien Nacional)</label><span>*</span>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                    <img src="imagenes/favicon/informacion.png" alt="">
-                                </span>
-                                <textarea name="observaciones1" onKeyUp="mayusculas(this);" id="observaciones1" style="border-radius: 0 30px 30px 0; height: 20px" class="form-control" cols="30" rows="10"></textarea>
-                            </div>
-                        </div> -->
-
-                        <!-- Dispositivos Electrónicos -->
-
-                        <div class="container" id="obs_visita7" style="display: none;">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label class="form-label">Marca</label><span> *</span>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                            <img src="imagenes/favicon/informacion.png" alt="">
-                                        </span>
-                                        <input id="marca" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. Lenovo" name="marca" required>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">Modelo</label><span> *</span>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                            <img src="imagenes/favicon/informacion.png" alt="">
-                                        </span>
-                                        <input id="modelo" onKeyUp="mayusculas(this);" maxlength="10" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. YSKMF45692" name="modelo" required>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">Serial</label><span> *</span>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                            <img src="imagenes/favicon/informacion.png" alt="">
-                                        </span>
-                                        <input id="serial" onKeyUp="mayusculas(this);" maxlength="16" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. ASF4511553120000" name="serial" required>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">Bien Nacional</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" style="border-radius: 30px 0 0 30px;">
-                                            <img src="imagenes/favicon/informacion.png" alt="">
-                                        </span>
-                                        <input id="bien_nacional" maxlength="7" onKeyUp="mayusculas(this);" type="text" class="form-control" style="border-radius: 0 30px 30px 0;" placeholder="Ej. 4205640" name="bien_nacional" required>
-                                    </div>
-                                </div>
-                                <div>
-                                    <center>
-                                        <button type="button" onclick="agregar(3)" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
-                                            Registar Dispositivo Electrónico
-                                        </button>
-                                    </center>
-                                </div>
-                                <div class="col-12">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Marca</th>
-                                                <th scope="col">Modelo</th>
-                                                <th scope="col">Serial</th>
-                                                <th scope="col">Bien Nacional</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <div class="linea"></div>
-                                <div class="sep-2"></div>
-                            </div>
-                        </div>
 
                         <!-- Observaciones -->
 
