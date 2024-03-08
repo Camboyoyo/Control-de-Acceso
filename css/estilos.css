@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url(../imagenes/a_2.jpg);
+    background-image: url(../imagenes/Fondo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -86,3 +86,101 @@ span img{
 .sep-3{
     margin-top: 20px;
 }
+.fondo{
+    background-image: url(../imagenes/Fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+	color: rgb(66, 66, 66);
+	font-size: 16px;
+}
+.regresar img{
+    width: 30px;
+    border-radius: 30px;
+}
+.form-check-input{
+    background-image: url(imagenes/favicon/ingresar.png);
+}
+.alert{
+    width: 26%;
+    height: auto;
+    padding: 0;
+    padding-bottom: 10px;
+    background-color: #fff;
+    color: gray;
+    border-radius: 30px;
+    position: fixed;
+    border: 1px solid gray;
+    margin-left: 38%;
+    margin-top: 26%;
+    display: none;
+    z-index: 20;
+}
+.foto{
+    width: 30%;
+    height: auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: gray;
+    border-radius: 30px;
+    position: fixed;
+    border: 1px solid gray;
+    margin-left: 35%;
+    margin-top: 8%;
+    z-index: 10;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    width: 100%;
+    height: 220px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    display: flex;
+}
+.content video{
+    width: 100%;
+    height: 300px;
+    border-radius: 30px;
+    padding: 0;
+}
+.content-2{
+    width: 50%;
+    height: 250px;
+    border: 1px gray solid;
+    border-radius: 30px;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+}
+.texto{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 20px;
+    color: rgb(71, 71, 71);
+}
+.titulo{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 20px;
+    border-radius: 30px 30px 0 0;
+    color: rgb(65, 65, 65);
+}
+td img{
+    width: 100%;
+}
+#content_fecha span{
+    color: #424242;
+}
+/* .content canvas{
+    width: 100%;
+    height: 300px;
+    border-radius: 30px;
+    padding: 0;
+} */

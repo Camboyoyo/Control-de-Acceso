@@ -18,35 +18,41 @@ document.getElementById("nombre_menor").addEventListener("keydown", soloLetras);
 document.getElementById("apellido_menor").addEventListener("keydown", soloLetras);
 
 /* soloNumeros */
-document.getElementById("piso_visita").addEventListener("keydown", soloNumeros);
-document.getElementById("extencion").addEventListener("keydown", soloNumeros);
+/* document.getElementById("piso_visita").addEventListener("keydown", soloNumeros); */
+/* document.getElementById("extencion").addEventListener("keydown", soloNumeros); */
 document.getElementById("cedula").addEventListener("keydown", soloNumeros);
 document.getElementById("telefono1").addEventListener("keydown", soloNumeros);
 document.getElementById("cedula_menor2").addEventListener("keydown", soloNumeros);
-document.getElementById("cedula_mayor").addEventListener("keydown", soloNumeros);
+/* document.getElementById("cedula_mayor").addEventListener("keydown", soloNumeros); */
 document.getElementById("pase").addEventListener("keydown", soloNumeros);
 document.getElementById("telefono_mayor").addEventListener("keydown", soloNumeros);
 /* document.getElementById("bien_nacional").addEventListener("keydown", soloNumeros); */
 
-function validar1(){
-    /* if(document.getElementById("tipo_visita").value <= 1){
-        document.getElementById("obs_visita2").style.display = "None";
-    }else */
-    /* if(document.getElementById("tipo_visita").value == 5 || document.getElementById("tipo_visita").value == 1){
-        document.getElementById("obs_visita2").style.display = "Block";
-    }else{
-        document.getElementById("obs_visita2").style.display = "None";
-    } */
-}
-function validar2(){
-    if(document.getElementById("dependencia").value == 0){
-        document.getElementById("obs_visita3").style.display = "None";
-        document.getElementById("obs_visita").style.display = "None";
-    }else{
-        document.getElementById("obs_visita3").style.display = "Block";
-        document.getElementById("obs_visita").style.display = "Block";
+/* function validarExt(file) {
+    var extensionesPermitidas = /(.jpeg|.jpg|.png)$/i;
+    var extension = file.name.split('.').pop();
+    if (!extensionesPermitidas.test(extension)) {
+        let mensaje = ("El archivo no tiene una extensión válida.");
+        document.getElementById("texto").innerText = mensaje;
+        document.getElementById("alert").style.display = "block";
+        document.getElementById('foto').style.borderColor = "red";
+        valor++;
+        return false;
     }
+    return true;
 }
+function validarTamano(file) {
+    var tamanoMaximo = 10 * 1024 * 1024; // 10 MB
+    if (file.size > tamanoMaximo) {
+        let mensaje = ("El archivo es demasiado grande.");
+        document.getElementById("texto").innerText = mensaje;
+        document.getElementById("alert").style.display = "block";
+        document.getElementById('foto').style.borderColor = "red";
+        valor++;
+        return false;
+    }
+    return true;
+} */
 function validar3(){
     if(document.getElementById("tipo_visitas_menor").value == 0 || document.getElementById("tipo_visitas_menor").value == 2){
         document.getElementById("obs_visita4").style.display = "None";
@@ -200,7 +206,9 @@ function agregar(e){
         }
     }
     if(valor != 0){
-        alert("Debe llenar los campos obligatorios (*) para continuar");
+        let mensaje = ("Debe llenar los Datos obligatorios (*) para continuar");
+        document.getElementById("texto").innerText = mensaje;
+        document.getElementById("alert").style.display = "block";
     }
 }
 function buscar(e){
@@ -228,7 +236,9 @@ function buscar(e){
         }
     }
     if(valor != 0){
-        alert("Debe llenar los campos obligatorios (*) para continuar");
+        let mensaje = ("Debe llenar los Datos obligatorios (*) para continuar");
+        document.getElementById("texto").innerText = mensaje;
+        document.getElementById("alert").style.display = "block";
     }    
 }
 function registrar(){
@@ -269,35 +279,17 @@ function registrar(){
     }else{
         document.getElementById("telefono1").style.borderColor = "";
     }
-    if(document.getElementById("nombre_empresa").value == ""){
-        document.getElementById("nombre_empresa").style.borderColor = "red";
-        valor++;
-    }else{
-        document.getElementById("nombre_empresa").style.borderColor = "";
-    }
     if(document.getElementById("tipo_visita").value == 0){
         document.getElementById("tipo_visita").style.borderColor = "red";
         valor++;
     }else{
         document.getElementById("tipo_visita").style.borderColor = "";
     }
-    if(document.getElementById("motivo_visita").value == ""){
-        document.getElementById("motivo_visita").style.borderColor = "red";
-        valor++;
-    }else{
-        document.getElementById("motivo_visita").style.borderColor = "";
-    }
     if(document.getElementById("pase").value == ""){
         document.getElementById("pase").style.borderColor = "red";
         valor++;
     }else{
         document.getElementById("pase").style.borderColor = "";
-    }
-    if(document.getElementById("dependencia").value == 0){
-        document.getElementById("dependencia").style.borderColor = "red";
-        valor++;
-    }else{
-        document.getElementById("dependencia").style.borderColor = "";
     }
     if(document.getElementById("tipo_visitas_menor").value == 0){
         document.getElementById("tipo_visitas_menor").style.borderColor = "red";
@@ -365,11 +357,33 @@ function registrar(){
             document.getElementById("serial").style.borderColor = "";
         }
     }
+    if(!document.getElementById("foto").files[0]){
+        document.getElementById("foto").style.borderColor = "red";
+        valor++;
+    }else{
+        document.getElementById("foto").style.borderColor = "";
+    }
+    /* var archivo = document.getElementById('foto');
+    if (!validarExt(archivo.files[0])) {
+        if (!validarTamano(archivo.files[0])) {
+            archivo.style.borderColor = "red";
+            valor++;
+        }else{
+            archivo.style.borderColor = "";
+        }
+    }else{
+        archivo.style.borderColor = "";
+    } */
     if(valor != 0){
-        alert("Debe llenar los campos obligatorios (*) para continuar");
+        let mensaje = ("Debe llenar los Datos obligatorios (*) para continuar");
+        document.getElementById("texto").innerText = mensaje;
+        document.getElementById("alert").style.display = "block";
     }
 }
 function mayusculas(e) {
     let aux = e.value = e.value.toUpperCase();
     aux.preventDefault();
+}
+function cerrar(){
+    document.getElementById("alert").style.display = "none";
 }

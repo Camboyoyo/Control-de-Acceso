@@ -26,6 +26,12 @@ document.getElementById("cedula").addEventListener("keydown", soloNumeros);
 
 function buscar(){
     let valor = 0;
+    if(document.getElementById("nacionalidad").value == "0"){
+        document.getElementById("nacionalidad").style.borderColor = "Red";
+        valor++;
+    }else{
+        document.getElementById("nacionalidad").style.borderColor = "";
+    }
     if(document.getElementById("cedula").value == ""){
         document.getElementById("cedula").style.borderColor = "Red";
         valor++;
@@ -33,15 +39,26 @@ function buscar(){
         document.getElementById("cedula").style.borderColor = "";
     }
     if(valor > 0){
-        alert("Debe llenar los campos obligatorios (*) para continuar");
+        document.getElementById("texto").innerText = ("Debe llenar los Datos obligatorios (*) para continuar");
+        document.getElementById("titulo").innerText = ("Advertencia");
+        document.getElementById("titulo").style.backgroundColor = "#DC3831"; //Rojo
+        document.getElementById("titulo").style.color = "white";
+        document.getElementById("alert").style.display = "block";
     }/* else{
         document.getElementById("tabla").style.display = "Block";
     } */
 }
-function mensaje(e){
-    alert(e);
+function mensaje(dato1, dato2, dato3){
+    document.getElementById("titulo").innerText = ("Datos del Dispositivo");
+    document.getElementById("texto").innerText = dato1+"\n"+dato2+"\n"+dato3;
+    document.getElementById("titulo").style.backgroundColor = "#46A2FD"; //Azul
+    document.getElementById("titulo").style.color = "white";
+    document.getElementById("alert").style.display = "block";
 }
-function agregar(){
+function cerrar(){
+    document.getElementById("alert").style.display = "none";
+}
+/* function agregar(){
     let valor1 = 0;
     let valor2 = 0;
     let valor3 = 0;
@@ -61,7 +78,7 @@ function agregar(){
     if(valor3 == 17){
         alert("No se ha selecionado ningun campo");
     }
-}
+} */
 function marcar_todo(){
     if(document.getElementById("todo").checked){
         for(i = 0; i <= 16; i++){
@@ -76,8 +93,10 @@ function marcar_todo(){
         for(i = 0; i <= 16; i++){
             let input = document.getElementById(i);
             if(input){
-                if(input.checked){
-                    input.checked = false;
+                if(!input.disabled){
+                    if(input.checked){
+                        input.checked = false;
+                    }
                 }
             }
         }
