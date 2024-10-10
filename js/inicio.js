@@ -53,25 +53,28 @@ function ingresar(nacionalidad,cedula, dependencia, motivo_visita){
         document.getElementById("titulo").style.backgroundColor = "#DC3831"; //Rojo
         document.getElementById("titulo").style.color = "white";
         document.getElementById("alert").style.display = "block";
+        document.getElementById("link").value = "";
+        
     }else{
         $.ajax({
             url: "control_acceso.php?nacionalidad="+nacionalidad+"&cedula="+cedula+"&accion="+1,
             type: "GET",
             success: function(resp) {
-                location.href = "acceso_visita2.php";
-                /* if(resp == '30699868' || resp == '13162495' || resp == '13289657' || resp == '28302971'){
-                    location.href = "salida_visita.php";
+                let v0 =  resp.split(" / ")[0];
+                let v1 =  resp.split(" / ")[1];
+                if(v0 == '1'){
+                    document.getElementById("texto").innerText = v1;
+                    document.getElementById("titulo").style.backgroundColor = "#DC3831"; //Rojo
+                    document.getElementById("titulo").style.color = "white";
+                    document.getElementById("alert").style.display = "block";
+                    document.getElementById("link").value = "acceso_visita2.php";
+                    /* location.href = "acceso_visita2.php"; */
                 }else{
                     location.href = "acceso_visita2.php";
-                } */
+                }
             }
         });
     }
-    /* if(cedula == '30699868'){
-        location.href = "salida_visita.php";
-    }else{
-        location.href = "acceso_visita.php";
-    } */
 }
 function registrar(){
     let valor = 0;
@@ -107,6 +110,7 @@ function registrar(){
         document.getElementById("titulo").style.backgroundColor = "#DC3831"; //Rojo
         document.getElementById("titulo").style.color = "white";
         document.getElementById("alert").style.display = "block";
+        document.getElementById("link").value = "";
     }
 }
 function observar(){
@@ -129,5 +133,9 @@ function validar(){
     }
 }
 function cerrar(){
-    document.getElementById("alert").style.display = "none";
+    if(document.getElementById("link").value == ""){
+        document.getElementById("alert").style.display = "none";
+    }else{
+        location.href = document.getElementById("link").value;
+    }    
 }

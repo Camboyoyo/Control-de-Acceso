@@ -55,17 +55,17 @@ function guardar(){
     }else{
         document.getElementById("nacimiento").style.borderColor = ""; 
     }
-    if(document.getElementById("sexo").value == ""){
-        document.getElementById("sexo").style.borderColor = "red";
+    if(document.getElementById("sexo2").value == "0"){
+        document.getElementById("sexo2").style.borderColor = "red";
         valor++;
     }else{
-        document.getElementById("sexo").style.borderColor = ""; 
+        document.getElementById("sexo2").style.borderColor = ""; 
     }
     if(valor > 0){
         document.getElementById("texto").innerText = ("Debe llenar los Datos obligatorios (*) para continuar");
         document.getElementById("titulo").style.backgroundColor = "#DC3831"; //Rojo
         document.getElementById("titulo").style.color = "white";
-        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.display = "";
     }
 }
 function validar1(){
