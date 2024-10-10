@@ -1,6 +1,12 @@
 <?
     session_start();
-    $_SESSION['recarga'] = 0;
+    $_SESSION['acceso_visista_recarga'] = 0;
+    session_unset($_SESSION['acceso_visita_cedula']);
+    session_unset($_SESSION['acceso_visita_nacionalidad']);
+    session_unset($_SESSION['acceso_visita_nombres']);
+    session_unset($_SESSION['acceso_visita_apellidos']);
+    session_unset($_SESSION['acceso_visita_nacimiento']);
+    session_unset($_SESSION['acceso_visita_sexo']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,9 +22,23 @@
     <link rel="stylesheet" href="css/bootstrap5.1.3/css/bootstrap.rtl.css">
     <!-- Link's CSS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/alerta.css">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <div id="alert" class="fondo_alerta" style="display: none;">
+        <div class="alerta">
+            <h4 id="titulo" style="margin-top: 0;">Advertencia</h4>
+            <p id="texto"></p>
+            <div class="sep"></div>
+            <center>
+                <button type="button" class="btn btn-primary" onclick="cerrar()" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
+                    Cerrar
+                </button>
+            </center>
+            <div class="sep"></div>
+        </div>
+    </div>
     <header>
         <!-- NavBar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -30,24 +50,16 @@
         </nav>
     </header>
     <body>
-        <div class="alert" id="alert" style="margin-top: 18%;">
-            <h4 class="titulo" id="titulo">Advertencia</h4>
-            <p id="texto" class="texto"></p>
-            <center>
-                <button type="button" class="btn btn-primary" onclick="cerrar()" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; padding: 7px 22px; float: center; border-radius: 30px;" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="#fff";'>
-                    Cerrar
-                </button>
-            </center>
-        </div>
+        <input type="text" id="link" style="display: none;">
         <!-- <a href="vista.php" style="background-color: #46A2FD; color: #fff; border: 1px Solid #46A2FD; float: center; border-radius: 30px; margin-top: 50px" onmouseout='this.style.color="#fff"; this.style.backgroundColor="#46A2FD"; this.style.border="1px Solid #46A2FD"' onmouseover='this.style.color="#46A2FD"; this.style.backgroundColor="transparent";' class="btn btn-primary regresar"><img onmouseover='this.style.backgroundColor="#46A2FD";' src="imagenes/favicon/regresar.png"></a> -->
-            <div class="card" style="border-radius: 30px; margin-top: 70px; width: 33%; margin-bottom: 20px; margin-left: 34%">
+        <div class="card" style="border-radius: 30px; margin-top: 70px; width: 33%; margin-bottom: 20px; margin-left: 34%; background-color: #2F6CFA;">
+            <div class="card" style="border-radius: 30px; margin-top: 10px; width: 100%; margin-left: -2%">
                 <div class="card-body">
                     <center>
-                        <img style="width: 40%;" src="imagenes/logo.png">
                         <div class="sep"></div>
-                        <h3 class="card-title" style="color: rgb(35, 96, 249); font-size: 30px; text-align: center; width: 100%; margin-top: 0">Registro y Control de Visitantes</h3>
-                        <h5 style="color: #BF1F13; font-size: 16px; font-weight: 500; width: 100%"> Datos Obligatorios (*) </h5>
-                        <div class="linea"></div>
+                        <h1>Registro y Control de Visitantes</h1>
+                        <h6 style="color: #BF1F13; font-size: 16px; width: 100%; text-align: right"> Datos Obligatorios (*) </h6>
+                        <hr>
                     </center>
                     <div style="width: 100%; height: 8px"></div>
                     <div class="col-12">
@@ -155,8 +167,8 @@
                             </span>
                             <select class="form-select" style="padding-right: 0;" id="nacionalidad">
                                 <option value="0" selected>Seleccione</option>
-                                <option value="1">Venezolano</option>
-                                <option value="2">Extranjero</option>
+                                <option value="V">Venezolano</option>
+                                <option value="E">Extranjero</option>
                             </select>
                             <input id="cedula" onKeyUp="mayusculas(this);" type="text" class="form-control" maxlength="8" placeholder="Ej. 00000000" name="cedula" required>
                             <div class="btn-group" role="group">
@@ -179,6 +191,7 @@
                     </center>
                 </div>
             </div>
+        </div>
     </body>
     <footer>
         <div class="sep"></div>
